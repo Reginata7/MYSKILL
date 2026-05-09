@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Development Introduction</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        /* style form */
+        .form-group {
+            display: flex;
+            width: 300px;
+            flex-direction: column;
+            gap: 25px;
+            margin-top: 40px;
+            margin-bottom: 50px;
+            border-radius: 10px;
+            text-align: center;
+            background-color: rgb(211, 211, 211);
+            padding: 30px;
+        }
+
+        .form-group button {
+            width: 80px;
+            padding: 5px;
+            background-color: rgb(5, 155, 55);
+            color: white;
+            border: none;
+            align-self: flex-end;
+            cursor: pointer;
+        }
+
+        #main-form {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        #main-form input {
+            padding: 5px;
+            letter-spacing: 1px;
+            font-size: 14px;
+        }
+
+        /* style table */
+
+        .table-main {
+            width: fit-content;
+            border-spacing: 0;
+            border-collapse: collapse;
+            text-align: left;
+            display: none;
+        }
+
+        .table-main td, th {
+            padding: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="form-group">
+        <h1>Form Data Diri</h1>
+
+        <form id="main-form">
+            <label for="nama">Nama</label>
+            <input type="text" name="nama" id="nama">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email">
+            <label for="alamat">Alamat</label>
+            <textarea name="alamat" id="alamat" rows="5"></textarea>
+        </form>
+
+        <button type="submit">Submit</button>
+    </div>
+
+    <table class="table-main" border="1">
+        <tr>
+            <th>Nama</th>
+            <td>Andri</td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td>andri45@gmail.com</td>
+        </tr>
+        <tr>
+            <th>Alamat</th>
+            <td>Kalimas rt 27/02</td>
+        </tr>
+    </table>
+    
+
+
+    
+</body>
+</html>
