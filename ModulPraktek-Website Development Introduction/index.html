@@ -48,7 +48,7 @@
             gap: 5px;
         }
 
-        #main-form input {
+        #main-form input, textarea {
             padding: 5px;
             letter-spacing: 1px;
             font-size: 14px;
@@ -56,16 +56,23 @@
 
         /* style table */
 
-        .table-main {
+        #table-main {
             width: fit-content;
             border-spacing: 0;
             border-collapse: collapse;
             text-align: left;
-            display: none;
         }
 
-        .table-main td, th {
+        #table-main th {
+            background-color: rgb(151, 151, 151);
+        }
+
+        #table-main td, th {
             padding: 10px;
+        }
+
+        .hidden {
+            display: none;
         }
 
     </style>
@@ -84,26 +91,48 @@
             <textarea name="alamat" id="alamat" rows="5"></textarea>
         </form>
 
-        <button type="submit">Submit</button>
+        <button type="submit" id="submit">Submit</button>
     </div>
 
-    <table class="table-main" border="1">
-        <tr>
-            <th>Nama</th>
-            <td>Andri</td>
-        </tr>
-        <tr>
-            <th>Email</th>
-            <td>andri45@gmail.com</td>
-        </tr>
-        <tr>
-            <th>Alamat</th>
-            <td>Kalimas rt 27/02</td>
-        </tr>
+    <table id="table-main" class="hidden" border="1">
+        <tr class="baris"><th>Nama</th></tr>
+        <tr class="baris"><th>Email</th></tr>
+        <tr class="baris"><th>Alamat</th></tr>
     </table>
     
 
 
-    
+    <script>
+        const tombol = document.getElementById("submit");
+        const form = document.getElementById("main-form");
+        const tabel = document.getElementById("table-main");
+
+        tombol.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            const nilaiNama = document.getElementById("nama").value.trim();
+            const nilaiEmail = document.getElementById("email").value.trim();
+            const nilaiAlamat = document.getElementById("alamat").value.trim();
+
+            if (nilaiNama === "" || nilaiEmail === "" || nilaiAlamat === "") {
+                alert('Data tidak boleh kosong!');
+                return;
+            };
+
+            const masukBaris = document.querySelectorAll(".baris");
+
+            const selNama = masukBaris[0].insertCell(-1);
+            const selEmail = masukBaris[1].insertCell(-1);
+            const selAlamat = masukBaris[2].insertCell(-1);
+            selNama.textContent = nilaiNama;
+            selEmail.textContent = nilaiEmail;
+            selAlamat.textContent = nilaiAlamat;
+
+            tabel.classList.remove("hidden");
+
+            form.reset();
+        })
+
+    </script>
 </body>
 </html>
